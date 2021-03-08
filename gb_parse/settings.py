@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = "gb_parse.spiders"
 LOG_ENABLE = True
 LOG_LEVEL = "DEBUG"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0"
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:85.0) Gecko/20100101 Firefox/85.0"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -26,7 +26,7 @@ CONCURRENT_REQUESTS = 32
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 1.2
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
@@ -63,9 +63,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'gb_parse.pipelines.GbParsePipeline': 300,
-# }
+ITEM_PIPELINES = {
+    "gb_parse.pipelines.GbParsePipeline": 300,
+    "gb_parse.pipelines.GbParseMongoPipeline": 400,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
